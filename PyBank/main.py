@@ -40,7 +40,6 @@ with open(budget_csv, "r") as csvfile:
         i += 1
     avg_changes = sum(changes)/months
     
-    
     #The greatest increase in profits (date and amount) over the entire period
     max_increase = max(profit_losses)
     for row in csvreader:
