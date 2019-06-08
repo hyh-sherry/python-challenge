@@ -26,23 +26,30 @@ with open(budget_csv, "r") as csvfile:
     num_of_month = len(months)
 
     #The net total amount of "Profit/Losses" over the entire period
-    net_total = 0
+    profit_losses = []
     for row in csvreader:
-        net_total += int(row[1])
+        profit_losses.append(int(row[1]))
+    net_total = sum(profit_losses)
 
     #The average of the changes in "Profit/Losses" over the entire period
     
     
     #The greatest increase in profits (date and amount) over the entire period
-
+    max_increase = max(profit_losses)
+    for row in csvreader:
+        if int(row[1]) == max_increase:
+            max_month = row[0]
 
     #The greatest decrease in losses (date and amount) over the entire period
-
+    min_increase = min(profit_losses)
+    for row in csvreader:
+        if int(row[1]) == min_increase:
+            min_month = row[0]
 
     print("Financial Analysis")
     print("----------------------------")
     print(f"Total Months: {num_of_month}")
     print(f"Total: ${net_total}")
     print(f"Average Change: ")
-    print(f"Greatest Increase in Profits: ")
-    print(f"Greatest Increase in Profits: ")
+    print(f"Greatest Increase in Profits: {max_month} (${max_increase})")
+    print(f"Greatest Increase in Profits: {min_month} (${min_increase})")
