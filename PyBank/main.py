@@ -56,6 +56,6 @@ with open(budget_csv, "r") as csvfile:
     print("----------------------------")
     print(f"Total Months: {num_of_month}")
     print(f"Total: ${net_total}")
-    print(f"Average Change: ")
+    print(f"Average Change: ${avg_changes}")
     print(f"Greatest Increase in Profits: {max_month} (${max_increase})")
     print(f"Greatest Increase in Profits: {min_month} (${min_increase})")
