@@ -31,7 +31,18 @@ with open(budget_csv, "r") as csvfile:
         net_total += int(row[1])
 
     #The average of the changes in "Profit/Losses" over the entire period
-    avg_change = net_total/num_of_month
+    
     
     #The greatest increase in profits (date and amount) over the entire period
-    
+
+
+    #The greatest decrease in losses (date and amount) over the entire period
+
+
+    print("Financial Analysis")
+    print("----------------------------")
+    print(f"Total Months: {num_of_month}")
+    print(f"Total: ${net_total}")
+    print(f"Average Change: ")
+    print(f"Greatest Increase in Profits: ")
+    print(f"Greatest Increase in Profits: ")
