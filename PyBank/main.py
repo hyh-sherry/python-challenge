@@ -32,9 +32,6 @@ with open(budget_csv, "r") as csvfile:
     max_increase = max(profit_losses)
     min_increase = min(profit_losses)
 
-    print(max_increase)
-    print(min_increase)
-
     #The average of the changes in "Profit/Losses" over the entire period
     changes = []
     i = 0
