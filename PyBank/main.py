@@ -6,11 +6,10 @@
 #The greatest increase in profits (date and amount) over the entire period
 #The greatest decrease in losses (date and amount) over the entire period
 
-
 import os
 import csv
 
-budget_csv = os.path.join("..","Resources","budget_data.csv")
+budget_csv = os.path.join(os.path.dirname( __file__ ), "..","Resources","budget_data.csv")
 
 with open(budget_csv, "r") as csvfile:
     
@@ -20,37 +19,35 @@ with open(budget_csv, "r") as csvfile:
     #print(header)
 
     #the total number of months included in the dataset
-    months = []
-    for row in csvreader:
-        months.append(row[0])
-    num_of_month = len(months)
-
     #The net total amount of "Profit/Losses" over the entire period
+    months = []
     profit_losses = []
     for row in csvreader:
+        months.append(row[0])
         profit_losses.append(int(row[1]))
+    num_of_month = len(months)
     net_total = sum(profit_losses)
+    print(profit_losses)
 
     #The average of the changes in "Profit/Losses" over the entire period
     changes = []
     i = 0
-    while i < len(profit_losses):
+    while i < len(profit_losses)-1:
         num = profit_losses[i+1]-profit_losses[1]
         changes.append(num)
         i += 1
-    avg_changes = sum(changes)/months
+    avg_changes = sum(changes)/len(months)
     
     #The greatest increase in profits (date and amount) over the entire period
-    max_increase = max(profit_losses)
-    for row in csvreader:
-        if int(row[1]) == max_increase:
-            max_month = row[0]
-
     #The greatest decrease in losses (date and amount) over the entire period
-    min_increase = min(profit_losses)
-    for row in csvreader:
-        if int(row[1]) == min_increase:
-            min_month = row[0]
+    with open(budget_csv, "r") as csvfile:
+        max_increase = max(profit_losses)
+        min_increase = min(profit_losses)
+        for row in csvreader:
+            if int(row[1]) == max_increase:
+                max_month = row[0]
+            if int(row[1]) == min_increase:
+                min_month = row[0]
 
     print("Financial Analysis")
     print("----------------------------")
