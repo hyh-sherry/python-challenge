@@ -7,3 +7,7 @@
 #The greatest decrease in losses (date and amount) over the entire period
 
 
+import os
+import csv
+
+budget_csv = os.path.join("..","Resources, budget_data.csv")
