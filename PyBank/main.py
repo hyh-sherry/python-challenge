@@ -40,21 +40,30 @@ with open(budget_csv, "r") as csvfile:
         changes.append(num)
         i += 1
     print(changes)
-    avg_changes = sum(changes)/len(months)
+    avg_changes = sum(changes)/(len(months)-1)
     
     #The greatest increase in profits (date and amount) over the entire period
     #The greatest decrease in losses (date and amount) over the entire period
-    #with open(budget_csv, "r") as csvfile:
-    #    for row in csvreader:
-    #        if int(row[1]) == max_increase:
-    #            max_month = row[0]
-    #        if int(row[1]) == min_increase:
-    #            min_month = row[0]
+    for i in range(len(profit_losses)):
+        if profit_losses[i] == max_increase:
+            max_month = months[i]
+        if profit_losses[i] == min_increase:
+            min_month = months[i]
 
     print("Financial Analysis")
     print("----------------------------")
     print(f"Total Months: {num_of_month}")
     print(f"Total: ${net_total}")
     print(f"Average Change: ${avg_changes}")
-    #print(f"Greatest Increase in Profits: {max_month} (${max_increase})")
-    #print(f"Greatest Increase in Profits: {min_month} (${min_increase})")
+    print(f"Greatest Increase in Profits: {max_month} (${max_increase})")
+    print(f"Greatest Increase in Profits: {min_month} (${min_increase})")
+
+    #Write a txt file with results
+    result_file = open("Pybank/PyBank_Results.txt","w+")
+    print("Financial Analysis", file = result_file)
+    print("----------------------------", file = result_file)
+    print(f"Total Months: {num_of_month}", file = result_file)
+    print(f"Total: ${net_total}", file = result_file)
+    print(f"Average Change: ${avg_changes}", file = result_file)
+    print(f"Greatest Increase in Profits: {max_month} (${max_increase})", file = result_file)
+    print(f"Greatest Increase in Profits: {min_month} (${min_increase})", file = result_file)
