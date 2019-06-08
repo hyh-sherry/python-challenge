@@ -17,7 +17,7 @@ with open(budget_csv, "r") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     header = next(csvreader)
-    print(header)
+    #print(header)
 
     #the total number of months included in the dataset
     months = []
@@ -32,6 +32,13 @@ with open(budget_csv, "r") as csvfile:
     net_total = sum(profit_losses)
 
     #The average of the changes in "Profit/Losses" over the entire period
+    changes = []
+    i = 0
+    while i < len(profit_losses):
+        num = profit_losses[i+1]-profit_losses[1]
+        changes.append(num)
+        i += 1
+    avg_changes = sum(changes)/months
     
     
     #The greatest increase in profits (date and amount) over the entire period
