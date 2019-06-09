@@ -18,10 +18,6 @@ with open(election_csv, "r") as csvfile:
 
     total = 0
     candidates = []
-    candidate1_votes = 0
-    candidate2_votes = 0
-    candidate3_votes = 0
-    candidate4_votes = 0
     percent_of_votes = []
     votes_for_each  = []
 
@@ -32,7 +28,11 @@ with open(election_csv, "r") as csvfile:
         if row[2] not in candidates:
             candidates.append(row[2])
 
-
+    len(candidates)
+    candidate1_votes = 0
+    candidate2_votes = 0
+    candidate3_votes = 0
+    candidate4_votes = 0
     #The percentage of votes each candidate won
     #The total number of votes each candidate won
     with open(election_csv, "r") as csvfile:
