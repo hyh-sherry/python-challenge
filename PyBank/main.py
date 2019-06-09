@@ -50,6 +50,7 @@ with open(budget_csv, "r") as csvfile:
         if profit_losses[i] == min_increase:
             min_month = months[i]
 
+    #Print Result
     print("Financial Analysis")
     print("----------------------------")
     print(f"Total Months: {num_of_month}")
