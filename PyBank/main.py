@@ -40,7 +40,7 @@ with open(budget_csv, "r") as csvfile:
         changes.append(num)
         i += 1
     print(changes)
-    avg_changes = sum(changes)/(len(months)-1)
+    avg_changes = round(sum(changes)/(len(months)-1),2)
     
     #The greatest increase in profits (date and amount) over the entire period
     #The greatest decrease in losses (date and amount) over the entire period
@@ -67,3 +67,4 @@ with open(budget_csv, "r") as csvfile:
     print(f"Average Change: ${avg_changes}", file = result_file)
     print(f"Greatest Increase in Profits: {max_month} (${max_increase})", file = result_file)
     print(f"Greatest Increase in Profits: {min_month} (${min_increase})", file = result_file)
+    result_file.close()
