@@ -27,8 +27,8 @@ with open(election_csv, "r") as csvfile:
         total += 1
         if row[2] not in candidates:
             candidates.append(row[2])
-
     len(candidates)
+
     candidate1_votes = 0
     candidate2_votes = 0
     candidate3_votes = 0
@@ -66,7 +66,7 @@ with open(election_csv, "r") as csvfile:
             if election_list[i][1] == max_votes:
                 winner = election_list[i][0]
         
-
+        #Print Result
         print("Election Results")
         print("-------------------------")
         print(f"Total Votes: {total}")
