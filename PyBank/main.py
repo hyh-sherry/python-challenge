@@ -33,23 +33,23 @@ with open(budget_csv, "r") as csvfile:
     min_increase = min(profit_losses)
 
     #The average of the changes in "Profit/Losses" over the entire period
+    #The greatest increase in profits (date and amount) over the entire period
+    #The greatest decrease in losses (date and amount) over the entire period
+
     changes = []
     i = 0
     while i < len(profit_losses)-1:
         num = profit_losses[i+1]-profit_losses[i]
         changes.append(num)
         i += 1
-    print(changes)
-    avg_changes = round(sum(changes)/(len(months)-1),2)
-    
-    #The greatest increase in profits (date and amount) over the entire period
-    #The greatest decrease in losses (date and amount) over the entire period
-    for i in range(len(profit_losses)):
         if profit_losses[i] == max_increase:
             max_month = months[i]
         if profit_losses[i] == min_increase:
             min_month = months[i]
-
+    
+    print(changes)
+    avg_changes = round(sum(changes)/(len(months)-1),2)
+    
     #Print Result
     print("Financial Analysis")
     print("----------------------------")
