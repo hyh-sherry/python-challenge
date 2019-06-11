@@ -18,8 +18,6 @@ with open(election_csv, "r") as csvfile:
 
     total = 0
     candidates = []
-    percent_of_votes = []
-    votes_for_each  = []
 
     #The total number of votes cast
     #A complete list of candidates who received votes
@@ -29,10 +27,9 @@ with open(election_csv, "r") as csvfile:
             candidates.append(row[2])
     print(len(candidates))
 
-    candidate1_votes = 0
-    candidate2_votes = 0
-    candidate3_votes = 0
-    candidate4_votes = 0
+    votes_for_each  = [0,0,0,0]
+    percent_of_votes = []
+
     #The percentage of votes each candidate won
     #The total number of votes each candidate won
     with open(election_csv, "r") as csvfile:
@@ -40,22 +37,18 @@ with open(election_csv, "r") as csvfile:
         header = next(csvreader)
         for row in csvreader:
             if row[2] == candidates[0]:
-                candidate1_votes += 1
+                votes_for_each[0] += 1
             elif row[2] == candidates[1]:
-                candidate2_votes += 1
+                votes_for_each[1] += 1
             elif row[2] == candidates[2]:
-                candidate3_votes += 1
+                votes_for_each[2] += 1
             else:
-                candidate4_votes += 1
+                votes_for_each[3] += 1
         
-        votes_for_each.append(candidate1_votes)
-        votes_for_each.append(candidate2_votes)
-        votes_for_each.append(candidate3_votes)
-        votes_for_each.append(candidate4_votes)
-        percent_of_votes.append(round(candidate1_votes/total*100,3))
-        percent_of_votes.append(round(candidate2_votes/total*100,3))
-        percent_of_votes.append(round(candidate3_votes/total*100,3))
-        percent_of_votes.append(round(candidate4_votes/total*100,3))
+        percent_of_votes.append(round(votes_for_each[0]/total*100,3))
+        percent_of_votes.append(round(votes_for_each[1]/total*100,3))
+        percent_of_votes.append(round(votes_for_each[2]/total*100,3))
+        percent_of_votes.append(round(votes_for_each[3]/total*100,3))
         
         election_list = list(zip(candidates,percent_of_votes,votes_for_each))
         print(election_list)
