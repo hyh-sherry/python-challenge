@@ -47,7 +47,6 @@ with open(budget_csv, "r") as csvfile:
         if profit_losses[i] == min_increase:
             min_month = months[i]
     
-    print(changes)
     avg_changes = round(sum(changes)/(len(months)-1),2)
     
     #Print Result
